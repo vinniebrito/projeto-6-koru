@@ -1,4 +1,4 @@
-// Funções JavaScript para o Projeto
+// Função para alternar entre temas claro e escuro - Willian
 function toggleTheme() {
   document.body.classList.toggle("dark");
 }
