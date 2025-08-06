@@ -1,96 +1,109 @@
 /* Estilos para o Projeto */
-@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 /* inicio header */
 * {
-    font-family: "Geist", sans-serif;
+  font-family: "Geist", sans-serif;
 }
 
 body {
-    background-color: #F8FAFC;
-    transition: background-color 0.3s, color 0.3s;
+  background-color: #f8fafc;
+  transition: background-color 0.3s, color 0.3s;
+  padding: 30px;
 }
 
 header h1 {
-    font-size: 32px;
-    margin: 0;
+  font-size: 32px;
+  margin: 0;
 }
 
 header p {
-    margin: 0;
-    color: oklch(55.4% 0.046 257.417);
+  margin: 0;
+  color: oklch(55.4% 0.046 257.417);
 }
 
 header img {
-    max-width: 70px;
-    border-radius: 50px;
-    margin-right: 20px;
+  max-width: 70px;
+  border-radius: 50px;
+  margin-right: 20px;
 }
 
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 40px 0;
-    justify-content: space-between;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 40px 0;
+  justify-content: space-between;
 }
 
 .container .content {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .theme-toggle {
-    display: flex;
-    align-items: center;
-    background: #fff;
-    border-radius: 999px;
-    width: 140px;
-    height: 36px;
-    padding: 5px 15px;
-    position: relative;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 999px;
+  width: 140px;
+  height: 36px;
+  padding: 5px 15px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  justify-content: space-between;
 }
 
 .theme-toggle .icon {
-    width: 24px;
-    height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #666;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
 }
 
 .content-ball {
-    background-color: #cbcaca;
-    width: 80px;
-    height: 30px;
-    border-radius: 30px;
+  background-color: #cbcaca;
+  width: 80px;
+  height: 30px;
+  border-radius: 30px;
 }
 
 .toggle-ball {
-    position: absolute;
-    top: 9px;
-    left: 45px;
-    width: 28px;
-    height: 28px;
-    background-color: white;
-    border-radius: 50%;
-    transition: left 0.3s;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 9px;
+  left: 45px;
+  width: 28px;
+  height: 28px;
+  background-color: white;
+  border-radius: 50%;
+  transition: left 0.3s;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
 
 .dark .toggle-ball {
-    left: 100px;
+  left: 100px;
 }
 
 .dark {
-    background: #222;
-    color: white;
+  background: #222;
+  color: white;
 }
 
 /* fim header */
+
+/* Estilo da área para gerar resposta - Christiane Gomes */
+
+#respostaSection {
+  display: none; /* Oculta a área de resposta */
+  margin-top: 30px;
+  padding: inherit;
+  background-color: #f0f8ff;
+  border-left: 5px solid #4f3aad;
+  border-radius: 10px;
+}
+/* Fim do estilo da área para gerar resposta */
