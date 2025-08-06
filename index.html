@@ -7,20 +7,43 @@
     <link rel="icon" href="img/BugBusters.png" type="image/png" />
     <title>Assistente IA</title>
   </head>
+
   <body>
+    <header class="header">
+      <div class="container">
+        <div class="content">
+          <img src="/img/BugBusters.png" alt="logo bugbusters" />
+          <div>
+            <h1>Assistente de IA</h1>
+            <p>Interface moderna e inteligente</p>
+          </div>
+        </div>
+
+        <div class="theme-toggle" onclick="toggleTheme()">
+          <div class="icon">☀️</div>
+          <div class="content-ball">
+            <div class="toggle-ball"></div>
+          </div>
+          <div class="icon">🌙</div>
+        </div>
+      </div>
+    </header>
 
     <!-- Fiz este código de pergunta e botão para fazer o de resposta -->
     <h5>Fiz este exemplo para conseguir fazer a seção de resposta</h5>
-    <input type="text" id="perguntaInput" placeholder="Qual é a sua pergunta?">
+    <input
+      type="text"
+      id="perguntaInput"
+      placeholder="Qual é a sua pergunta?"
+    />
     <button onclick="mostrarResposta()">Enviar</button>
     <!-- Fim do código de input-->
 
     <!--Seção de resposta da IA - Christiane Gomes -->
     <div id="respostaSection">
-    <h6>Resposta IA</h6>
-    <p id="respostaTexto"></p>
+      <h6>Resposta IA</h6>
+      <p id="respostaTexto"></p>
     </div>
-
 
     <script src="js/main.js"></script>
   </body>
