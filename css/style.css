@@ -1,1 +1,17 @@
 /* Estilos para o Projeto */
+
+/* Estilo da área para gerar resposta - Christiane Gomes */
+body {
+    font-family: Arial, sans-serif;
+    padding: 30px;
+} 
+
+#respostaSection {
+    display: none; /* Oculta a área de resposta */
+    margin-top: 30px;
+    padding: inherit;
+    background-color: #f0f8ff;
+    border-left: 5px solid #4f3aad;
+    border-radius: 10px;
+}
+/* Fim do estilo da área para gerar resposta */
