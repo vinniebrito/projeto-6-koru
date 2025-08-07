@@ -161,3 +161,62 @@ header img {
     transition: 0.3s;
     background-image: linear-gradient(to right, #7f41fc, #ab3deb );
 }
+
+/* Estilo da área da API Key - Thalyta Ferreira */
+.api-key-container {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(144, 146, 146, 0.3);
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 20px; 
+  margin-left: 30px; 
+}
+
+.api-key-container label {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  padding: 5px 0;
+  font-weight: bold;
+  color: #33415f;
+  display: block;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgb(201, 201, 201);
+  border-radius: 10px;
+  padding: 10px 15px;
+}
+
+#apiKey {
+  border: none;
+  outline: none;
+  padding: 0;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  color: #464646;
+}
+
+#apiKey::placeholder {
+  color: #a9a9a9;
+}
+
+.input-wrapper::before {
+  content: '🔒';
+  font-size: 18px;
+  color: #a9a9a9;
+  margin-right: 10px;
+}
+
+.pergunta-container {
+  margin-bottom: 20px; 
+  margin-left: 30px; 
+}
+
+#button-pergunta {
+  width: 100%; 
+}
