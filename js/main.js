@@ -22,7 +22,7 @@ textarea.onkeyup = function () {
 
 // Função para enviar pergunta à IA - Vinnie
 async function enviarPergunta() {
-  const apiKey = document.getElementById("apiKeyInput").value.trim();
+  const apiKey = document.getElementById("apiKey").value.trim();
   const pergunta = document.getElementById("perguntaInput").value.trim();
   const respostaTexto = document.getElementById("respostaTexto");
 
