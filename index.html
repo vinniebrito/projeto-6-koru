@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="icon" href="./img/BugBusters.png" type="image/png" />
+    <link rel="icon" href="./img/logo.png" type="image/png" />
     <title>Assistente IA</title>
   </head>
 
@@ -12,7 +12,7 @@
     <header class="header">
       <div class="container">
         <div class="content">
-          <img src="./img/BugBusters.png" alt="logo bugbusters" />
+          <img src="./img/logo.png" alt="logo" />
           <div>
             <h1>Assistente de IA</h1>
             <p>Interface moderna e inteligente</p>
@@ -29,20 +29,34 @@
       </div>
     </header>
 
-        <!--input tipo password - Thalyta Ferreira -->
+    <!--input tipo password - Thalyta Ferreira -->
     <div class="api-key-container">
-        <label for="apiKey">API Key</label>
-        <div class="input-wrapper">
-        <input type="password" id="apiKey" placeholder="Insira sua API Key..." required>
-        </div>
+      <label for="apiKey">API Key</label>
+      <div class="input-wrapper">
+        <input
+          type="password"
+          id="apiKey"
+          placeholder="Insira sua API Key..."
+          required
+        />
+      </div>
     </div>
 
-       <!--Area de pergunta do usuário - Yasmin Moraes-->
+    <!--Area de pergunta do usuário - Yasmin Moraes-->
     <div class="pergunta-container">
-        <div id="pergunta-titulo">Sua pergunta</div> 
-        <textarea id="perguntaInput"placeholder="Digite sua pergunta aqui..."></textarea>
-        <p id="caracteres">Caracteres <span id="contador"> 0</span></p>  
-        <button id="button-pergunta" class=" botaopergunta" onclick="enviarPergunta()">Perguntar</button>
+      <div id="pergunta-titulo">Sua pergunta</div>
+      <textarea
+        id="perguntaInput"
+        placeholder="Digite sua pergunta aqui..."
+      ></textarea>
+      <p id="caracteres">Caracteres <span id="contador"> 0</span></p>
+      <button
+        id="button-pergunta"
+        class="botaopergunta"
+        onclick="enviarPergunta()"
+      >
+        Perguntar
+      </button>
     </div>
     <!--AFim da área de pergunta do usuário - Yasmin Moraes-->
 
@@ -53,5 +67,5 @@
     </div>
 
     <script src="js/main.js"></script>
-</body>
+  </body>
 </html>
