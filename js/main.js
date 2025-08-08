@@ -25,8 +25,38 @@ async function enviarPergunta() {
   const apiKey = document.getElementById("apiKey").value.trim();
   const pergunta = document.getElementById("perguntaInput").value.trim();
   const respostaTexto = document.getElementById("respostaTexto");
+  const loading = document.getElementById("loading");
+  const botao = document.getElementById("button-pergunta");
 
+// Validação de formulario - MIchelle
+   const erroApiKey = document.getElementById("erroApiKey");
+  const erroPergunta = document.getElementById("erroPergunta");
+
+
+  // validação
+    let valido = true;
+  if (apiKey === "") {
+    erroApiKey.textContent = "Por favor, insira sua API Key.";
+    erroApiKey.style.display = "block";
+    apiKeyInput.classList.add("input-erro");
+    valido = false;
+  }
+
+  if (pergunta === "") {
+    erroPergunta.textContent = "Digite uma pergunta antes de enviar.";
+    erroPergunta.style.display = "block";
+    perguntaInput.classList.add("input-erro");
+    valido = false;
+  }
+
+  if (!valido) return;
   // normalmente a estrutura de loading pode ser adicionada aqui
+  // estrutura de loading - MIchelle
+  // ativação do loading e botão inativo
+  loading.style.display = "flex";
+  botao.disabled = true;
+  botao.textContent = "Aguarde...";
+  // fim da estrutura de loading - MIchelle
 
   const resposta = await fetch(
     "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent",
@@ -59,6 +89,10 @@ async function enviarPergunta() {
     return;
   }
 
+  // continuação efeito loading - Michelle
+  loading.style.display = "none";
+  botao.disabled = false;
+  botao.textContent = "Perguntar";
   // aqui é onde consome a resposta da IA e exibe na tela
   // exemplo: respostaTexto.textContent = dados.(caminho da resposta), pode verificar o objeto com um console.log(dados) para ver o caminho correto. é bom usar '?' para evitar erros de sintaxe, assim se a resposta não existir (for null, undefined, etc), não quebra o código. por exemplo: dados.candidates?. e assim vai
 }
