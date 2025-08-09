@@ -40,6 +40,8 @@
           required
         />
       </div>
+      <!-- adição tag small para validação - Michelle -->
+       <small class="erro-msg" id="erroApiKey"></small>
     </div>
 
     <!--Area de pergunta do usuário - Yasmin Moraes-->
@@ -49,6 +51,8 @@
         id="perguntaInput"
         placeholder="Digite sua pergunta aqui..."
       ></textarea>
+      <!-- adição tag small para validação - Michelle -->
+       <small class="erro-msg" id="erroPergunta"></small>
       <p id="caracteres">Caracteres <span id="contador"> 0</span></p>
       <button
         id="button-pergunta"
@@ -57,6 +61,12 @@
       >
         Perguntar
       </button>
+      <!-- adição de div feito por Michelle (efeito loading) -->
+      <div id="loading" class="loading" style="display: none;">
+        <div class="spinner"></div>
+        <span>Carregando...</span>
+      </div>
+     <!--  Fim da adição de div feito por Michelle (efeito loading) -->
     </div>
     <!--AFim da área de pergunta do usuário - Yasmin Moraes-->
 
