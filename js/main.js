@@ -20,20 +20,8 @@ textarea.onkeyup = function () {
   character_in.innerText = this.value.length;
 };
 
-// Função para enviar pergunta à IA - Vinnie
-async function enviarPergunta() {
-  const apiKey = document.getElementById("apiKey").value.trim();
-  const pergunta = document.getElementById("perguntaInput").value.trim();
-  const respostaTexto = document.getElementById("respostaTexto");
-  const loading = document.getElementById("loading");
-  const botao = document.getElementById("button-pergunta");
-
-// Validação de formulario - MIchelle
-   const erroApiKey = document.getElementById("erroApiKey");
-  const erroPergunta = document.getElementById("erroPergunta");
-
-  // reset de erros
-  function limparErro(idCampo, idErro) {
+// Função auxiliar para limpar erros de campos - Michelle
+function limparErro(idCampo, idErro) {
   const campo = document.getElementById(idCampo);
   const erro = document.getElementById(idErro);
 
@@ -46,8 +34,20 @@ async function enviarPergunta() {
 limparErro("apiKey", "erroApiKey");
 limparErro("perguntaInput", "erroPergunta");
 
-  // validação
-    let valido = true;
+// Função para enviar pergunta à IA - Vinnie
+async function enviarPergunta() {
+  const apiKey = document.getElementById("apiKey").value.trim();
+  const pergunta = document.getElementById("perguntaInput").value.trim();
+  const respostaTexto = document.getElementById("respostaTexto");
+  const loading = document.getElementById("loading");
+  const botao = document.getElementById("button-pergunta");
+  // Validação de formulario - Michelle
+  const erroApiKey = document.getElementById("erroApiKey");
+  const erroPergunta = document.getElementById("erroPergunta");
+
+  // Validação
+  let valido = true;
+
   if (apiKey === "") {
     erroApiKey.textContent = "Por favor, insira sua API Key.";
     erroApiKey.style.display = "block";
@@ -63,49 +63,51 @@ limparErro("perguntaInput", "erroPergunta");
   }
 
   if (!valido) return;
-  // normalmente a estrutura de loading pode ser adicionada aqui
-  // estrutura de loading - MIchelle
-  // ativação do loading e botão inativo
+  // Estrutura de loading - Michelle
+  // Ativa loading e desabilita botão
   loading.style.display = "flex";
   botao.disabled = true;
   botao.textContent = "Aguarde...";
-  // fim da estrutura de loading - MIchelle
 
-  const resposta = await fetch(
-    "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "X-goog-api-key": apiKey,
-      },
-      body: JSON.stringify({
-        contents: [
-          {
-            parts: [
-              {
-                text: pergunta,
-              },
-            ],
-          },
-        ],
-      }),
+  try {
+    const resposta = await fetch(
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-goog-api-key": apiKey,
+        },
+        body: JSON.stringify({
+          contents: [
+            {
+              parts: [
+                {
+                  text: pergunta,
+                },
+              ],
+            },
+          ],
+        }),
+      }
+    );
+
+    const dados = await resposta.json();
+    mostrarResposta();
+
+    if (!resposta.ok) {
+      respostaTexto.textContent =
+        "Erro: " + (dados.error?.message || "Erro desconhecido");
+    } else {
+      // aqui é onde consome a resposta da IA e exibe na tela
+      // exemplo: respostaTexto.textContent = dados.(caminho da resposta), pode verificar o objeto com um console.log(dados) para ver o caminho correto. é bom usar '?' para evitar erros de sintaxe, assim se a resposta não existir (for null, undefined, etc), não quebra o código. por exemplo: dados.candidates?. e assim vai
     }
-  );
-
-  const dados = await resposta.json();
-  mostrarResposta();
-
-  if (!resposta.ok) {
-    respostaTexto.textContent =
-      "Erro: " + (dados.error?.message || "Erro desconhecido");
-    return;
+  } catch (e) {
+    respostaTexto.textContent = "Erro de conexão ou inesperado.";
+  } finally {
+    // Finaliza loading e reabilita botão - Michelle
+    loading.style.display = "none";
+    botao.disabled = false;
+    botao.textContent = "Perguntar";
   }
-
-  // continuação efeito loading - Michelle
-  loading.style.display = "none";
-  botao.disabled = false;
-  botao.textContent = "Perguntar";
-  // aqui é onde consome a resposta da IA e exibe na tela
-  // exemplo: respostaTexto.textContent = dados.(caminho da resposta), pode verificar o objeto com um console.log(dados) para ver o caminho correto. é bom usar '?' para evitar erros de sintaxe, assim se a resposta não existir (for null, undefined, etc), não quebra o código. por exemplo: dados.candidates?. e assim vai
 }
