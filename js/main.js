@@ -34,6 +34,14 @@ function limparErro(idCampo, idErro) {
 limparErro("apiKey", "erroApiKey");
 limparErro("perguntaInput", "erroPergunta");
 
+// Salva a API Key no localStorage - Vinnie
+window.addEventListener("DOMContentLoaded", () => {
+  const apiKeySalva = localStorage.getItem("apiKey");
+  if (apiKeySalva) {
+    document.getElementById("apiKey").value = apiKeySalva;
+  }
+});
+
 // Função para enviar pergunta à IA - Vinnie
 async function enviarPergunta() {
   const apiKey = document.getElementById("apiKey").value.trim();
@@ -45,20 +53,23 @@ async function enviarPergunta() {
   const erroApiKey = document.getElementById("erroApiKey");
   const erroPergunta = document.getElementById("erroPergunta");
 
-  // Validação
+  // Salva a API Key no localStorage - Vinnie
+  localStorage.setItem("apiKey", apiKey);
+
+  // Validação - Michelle
   let valido = true;
 
   if (apiKey === "") {
     erroApiKey.textContent = "Por favor, insira sua API Key.";
     erroApiKey.style.display = "block";
-    apiKeyInput.classList.add("input-erro");
+    document.getElementById("apiKey").classList.add("input-erro");
     valido = false;
   }
 
   if (pergunta === "") {
     erroPergunta.textContent = "Digite uma pergunta antes de enviar.";
     erroPergunta.style.display = "block";
-    perguntaInput.classList.add("input-erro");
+    document.getElementById("perguntaInput").classList.add("input-erro");
     valido = false;
   }
 
@@ -69,6 +80,8 @@ async function enviarPergunta() {
   botao.disabled = true;
   botao.textContent = "Aguarde...";
 
+  // Limpa a resposta anterior - Vinnie
+  respostaTexto.textContent = "";
   try {
     const resposta = await fetch(
       "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent",
@@ -96,14 +109,30 @@ async function enviarPergunta() {
     mostrarResposta();
 
     if (!resposta.ok) {
-      respostaTexto.textContent =
-        "Erro: " + (dados.error?.message || "Erro desconhecido");
+      switch (dados.error?.code) {
+        case 400:
+          respostaTexto.textContent =
+            "Dados enviados inválidos. Verifique sua API Key e/ou sua pergunta e tente novamente.";
+          break;
+        case 403:
+          respostaTexto.textContent =
+            "Você não tem permissão para usar este recurso. Verifique sua conta ou chave de API.";
+          break;
+        case 429:
+          respostaTexto.textContent =
+            "Limite de uso da API atingido. Tente novamente mais tarde.";
+          break;
+        default:
+          respostaTexto.textContent =
+            "Erro: " + (dados.error?.message || "Erro desconhecido.");
+      }
     } else {
       // aqui é onde consome a resposta da IA e exibe na tela
       // exemplo: respostaTexto.textContent = dados.(caminho da resposta), pode verificar o objeto com um console.log(dados) para ver o caminho correto. é bom usar '?' para evitar erros de sintaxe, assim se a resposta não existir (for null, undefined, etc), não quebra o código. por exemplo: dados.candidates?. e assim vai
     }
   } catch (e) {
-    respostaTexto.textContent = "Erro de conexão ou inesperado.";
+    respostaTexto.textContent =
+      "Não foi possível se conectar à IA no momento. Por favor, verifique sua conexão ou tente novamente mais tarde.";
   } finally {
     // Finaliza loading e reabilita botão - Michelle
     loading.style.display = "none";
