@@ -32,6 +32,19 @@ async function enviarPergunta() {
    const erroApiKey = document.getElementById("erroApiKey");
   const erroPergunta = document.getElementById("erroPergunta");
 
+  // reset de erros
+  function limparErro(idCampo, idErro) {
+  const campo = document.getElementById(idCampo);
+  const erro = document.getElementById(idErro);
+
+  campo.addEventListener("focus", () => {
+    erro.style.display = "none";
+    campo.classList.remove("input-erro");
+  });
+}
+
+limparErro("apiKey", "erroApiKey");
+limparErro("perguntaInput", "erroPergunta");
 
   // validação
     let valido = true;
