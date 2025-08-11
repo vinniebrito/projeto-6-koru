@@ -63,9 +63,9 @@ header img {
   align-items: center;
   background: var(--cor-bg-cards);
   border-radius: 999px;
-  width: 140px;
-  height: 36px;
-  padding: 5px 15px;
+  width: 90px;
+  height: 28px;
+  padding: 3px 8px;
   position: relative;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
@@ -73,27 +73,29 @@ header img {
 }
 
 .theme-toggle .icon {
-  width: 24px;
-  height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--cor-text-secondary);
 }
 
+.theme-toggle .icon i {
+  font-size: 16px;
+}
+
 .content-ball {
-  background-color: var(--cor-ball);
-  width: 80px;
-  height: 30px;
+  background-color: var(--cor-bg);
+  width: 48px;
+  height: 18px;
   border-radius: 30px;
 }
 
 .toggle-ball {
   position: absolute;
-  top: 9px;
-  left: 45px;
-  width: 28px;
-  height: 28px;
+  top: 10px;
+  left: 30px;
+  width: 14px;
+  height: 14px;
   background-color: var(--cor-bg-cards);
   border-radius: 50%;
   transition: left 0.3s;
@@ -157,11 +159,10 @@ header img {
   color: var(--cor-text-input);
 }
 
-.input-wrapper::before {
-  content: "🔒";
+.icon-key {
+  margin-right: 8px;
+  color: #a9a9a9;
   font-size: 18px;
-  color: var(--cor-text-input);
-  margin-right: 10px;
 }
 
 /* Pergunta - Yasmin Moraes*/
@@ -305,15 +306,18 @@ footer a:hover {
   color: var(--cor-dark-text);
 }
 
-.dark .theme-toggle,
-.dark .content-ball {
+.dark .theme-toggle {
   background: var(--cor-dark-bg-cards);
+}
+
+.dark .content-ball {
+  background: var(--cor-dark-bg-secondary);
 }
 
 .dark .toggle-ball {
   background-color: var(--cor-dark-toggle);
   box-shadow: 0 0 15px rgba(15, 15, 15, 0.5);
-  left: 100px;
+  left: 60px;
 }
 
 .dark .titulo-secao,

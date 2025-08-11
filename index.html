@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="icon" href="./img/logo.png" type="image/png" />
     <title>Assistente IA</title>
@@ -21,11 +25,11 @@
         </div>
 
         <div class="theme-toggle" onclick="toggleTheme()">
-          <div class="icon">☀️</div>
+          <div class="icon"><i class="fa-solid fa-sun"></i></div>
           <div class="content-ball">
             <div class="toggle-ball"></div>
           </div>
-          <div class="icon">🌙</div>
+          <div class="icon"><i class="fa-solid fa-moon"></i></div>
         </div>
       </div>
     </header>
@@ -36,6 +40,7 @@
         <label class="titulo-secao" for="apiKey">API Key (Gemini) </label>
       </div>
       <div class="input-wrapper" id="inputWrapper">
+        <i class="fa-solid fa-lock icon-key"></i>
         <input
           type="password"
           id="apiKey"
@@ -62,7 +67,7 @@
         class="botaopergunta"
         onclick="enviarPergunta()"
       >
-        Perguntar
+        Perguntar <i class="fa-solid fa-paper-plane"></i>
       </button>
     </div>
 

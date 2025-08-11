@@ -150,6 +150,6 @@ async function enviarPergunta() {
     // Finaliza loading e reabilita botão - Michelle
     loading.style.display = "none";
     botao.disabled = false;
-    botao.textContent = "Perguntar";
+    botao.innerHTML = 'Perguntar <i class="fa-solid fa-paper-plane"></i>';
   }
 }
