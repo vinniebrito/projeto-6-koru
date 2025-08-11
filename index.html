@@ -9,6 +9,7 @@
   </head>
 
   <body>
+    <!-- Header - William -->
     <header class="header">
       <div class="container">
         <div class="content">
@@ -29,12 +30,12 @@
       </div>
     </header>
 
-    <!--input tipo password - Thalyta Ferreira -->
+    <!-- Input tipo password - Thalyta Ferreira -->
     <div class="api-key-container">
       <div class="label-container">
-        <label class="titulo-secao" for="apiKey">API Key</label>
+        <label class="titulo-secao" for="apiKey">API Key (Gemini) </label>
       </div>
-      <div class="input-wrapper">
+      <div class="input-wrapper" id="inputWrapper">
         <input
           type="password"
           id="apiKey"
@@ -42,20 +43,20 @@
           required
         />
       </div>
-      <!-- adição tag small para validação - Michelle -->
+      <!-- Adição tag small para validação - Michelle -->
       <small class="erro-msg" id="erroApiKey"></small>
     </div>
 
-    <!--Area de pergunta do usuário - Yasmin Moraes-->
+    <!-- Pergunta do usuário - Yasmin Moraes-->
     <div class="pergunta-container">
       <h6 class="titulo-secao">Sua pergunta</h6>
       <textarea
         id="perguntaInput"
         placeholder="Digite sua pergunta aqui..."
       ></textarea>
-      <!-- adição tag small para validação - Michelle -->
+      <!-- Adição tag small para validação - Michelle -->
       <small class="erro-msg" id="erroPergunta"></small>
-      <p id="caracteres">Caracteres <span id="contador"> 0</span></p>
+      <p id="caracteres">Caracteres: <span id="contador"> 0</span></p>
       <button
         id="button-pergunta"
         class="botaopergunta"
@@ -63,25 +64,42 @@
       >
         Perguntar
       </button>
-      <!-- adição de div feito por Michelle (efeito loading) -->
-      <div id="loading" class="loading" style="display: none">
-        <div class="spinner"></div>
-        <span>Carregando...</span>
-      </div>
-      <!--  Fim da adição de div feito por Michelle (efeito loading) -->
     </div>
-    <!--AFim da área de pergunta do usuário - Yasmin Moraes-->
 
-    <!--Seção de resposta da IA - Christiane Gomes -->
+    <!-- Resposta da IA - Christiane e Bianca -->
     <div class="resposta-container" id="resposta-container">
       <div class="resposta-titulo-container">
         <div class="resposta-titulo-circulo"></div>
         <h6 class="titulo-secao">Resposta da IA</h6>
       </div>
       <div id="respostaSection">
+        <!-- Adição de div feito por Michelle (efeito loading) -->
+        <div id="loading" class="loading" style="display: none">
+          <div class="spinner"></div>
+          <span>Carregando...</span>
+        </div>
         <p class="resposta-texto" id="respostaTexto"></p>
       </div>
     </div>
+
+    <!-- Footer - Vinnie -->
+    <footer>
+      <p>
+        Desenvolvido pelo grupo <strong>BugBusters</strong> como parte do
+        Programa Desenvolve do grupo Boticário + Koru.
+      </p>
+      <p>
+        Powered by
+        <strong
+          ><a
+            href="https://ai.google.dev/gemini-api"
+            target="_blank"
+            rel="noopener noreferrer"
+            >API Gemini</a
+          ></strong
+        >.
+      </p>
+    </footer>
 
     <script src="js/main.js"></script>
   </body>
