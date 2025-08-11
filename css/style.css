@@ -325,7 +325,8 @@ footer a:hover {
 .dark .api-key-container,
 .dark .pergunta-container,
 .dark .resposta-container,
-.dark .resposta-texto {
+.dark .resposta-texto,
+.dark .loading {
   color: var(--cor-dark-text);
 }
 
