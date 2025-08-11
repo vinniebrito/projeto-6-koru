@@ -93,13 +93,20 @@ header img {
   color: white;
 }
 
+.titulo-secao {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  margin: 16px 0;
+  font-weight: bold;
+  color: #33415f;
+}
+
 /* fim header */
 
 /* Estilo da área para gerar resposta - Christiane Gomes */
 
 #respostaSection {
-  margin-top: 30px;
-  padding: inherit;
+  padding: 20px;
   background-color: #f0f8ff;
   border-left: 5px solid #4f3aad;
   border-radius: 10px;
@@ -108,7 +115,7 @@ header img {
 
 /* Estilo da área para gerar resposta - Bianca */
 .resposta-container {
-  display: block; /* Oculta a área de resposta */
+  display: none; /* Oculta a área de resposta */
   background-color: #ffffff;
   padding: 30px;
   border-radius: 10px;
@@ -132,6 +139,11 @@ header img {
   border-radius: 50%;
 }
 
+.resposta-texto {
+  color: #33415f;
+  margin: 0;
+}
+
 /* Fim do estilo da área para gerar resposta */
 
 /* Pergunta do usuário*/
@@ -148,14 +160,6 @@ header img {
   resize: none;
   width: 500px;
   height: 50px;
-}
-
-#pergunta-titulo {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 15px;
-  padding: 5px;
-  font-weight: bold;
-  color: #33415f;
 }
 
 #perguntaInput {
@@ -199,13 +203,8 @@ header img {
   margin-left: 30px;
 }
 
-.api-key-container label {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 15px;
-  padding: 5px 0;
-  font-weight: bold;
-  color: #33415f;
-  display: block;
+.label-container {
+  margin: 16px 0;
 }
 
 .input-wrapper {
