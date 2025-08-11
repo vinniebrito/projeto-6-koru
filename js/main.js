@@ -28,6 +28,10 @@ function limparErro(idCampo, idErro) {
   campo.addEventListener("focus", () => {
     erro.style.display = "none";
     campo.classList.remove("input-erro");
+    if (idCampo === "apiKey") {
+      const wrapper = document.getElementById("inputWrapper");
+      if (wrapper) wrapper.classList.remove("input-erro");
+    }
   });
 }
 
@@ -41,6 +45,14 @@ window.addEventListener("DOMContentLoaded", () => {
     document.getElementById("apiKey").value = apiKeySalva;
   }
 });
+
+// Função para converter markdown simples em HTML
+function formatarResposta(text) {
+  if (!text) return "";
+  return text
+    .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") // negrito
+    .replace(/\n/g, "<br>"); // quebra de linha
+}
 
 // Função para enviar pergunta à IA - Vinnie
 async function enviarPergunta() {
@@ -62,7 +74,7 @@ async function enviarPergunta() {
   if (apiKey === "") {
     erroApiKey.textContent = "Por favor, insira sua API Key.";
     erroApiKey.style.display = "block";
-    document.getElementById("apiKey").classList.add("input-erro");
+    document.getElementById("inputWrapper").classList.add("input-erro");
     valido = false;
   }
 
@@ -126,18 +138,27 @@ async function enviarPergunta() {
           respostaTexto.textContent =
             "Erro: " + (dados.error?.message || "Erro desconhecido.");
       }
+      document
+        .getElementById("resposta-container")
+        .scrollIntoView({ behavior: "smooth", block: "start" });
     } else {
       //adiciona a resposta da IA e exibe na tela - bianca
-      respostaTexto.textContent = respostaTexto.textContent =
-        dados.candidates?.[0]?.content?.parts?.[0]?.text;
+      const resposta = dados.candidates?.[0]?.content?.parts?.[0]?.text;
+      respostaTexto.innerHTML = formatarResposta(resposta);
+      document
+        .getElementById("resposta-container")
+        .scrollIntoView({ behavior: "smooth", block: "start" });
     }
   } catch (e) {
     respostaTexto.textContent =
       "Não foi possível se conectar à IA no momento. Por favor, verifique sua conexão ou tente novamente mais tarde.";
+    document
+      .getElementById("resposta-container")
+      .scrollIntoView({ behavior: "smooth", block: "start" });
   } finally {
     // Finaliza loading e reabilita botão - Michelle
     loading.style.display = "none";
     botao.disabled = false;
-    botao.textContent = "Perguntar";
+    botao.innerHTML = 'Perguntar <i class="fa-solid fa-paper-plane"></i>';
   }
 }
