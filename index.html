@@ -41,7 +41,7 @@
         />
       </div>
       <!-- adição tag small para validação - Michelle -->
-       <small class="erro-msg" id="erroApiKey"></small>
+      <small class="erro-msg" id="erroApiKey"></small>
     </div>
 
     <!--Area de pergunta do usuário - Yasmin Moraes-->
@@ -52,7 +52,7 @@
         placeholder="Digite sua pergunta aqui..."
       ></textarea>
       <!-- adição tag small para validação - Michelle -->
-       <small class="erro-msg" id="erroPergunta"></small>
+      <small class="erro-msg" id="erroPergunta"></small>
       <p id="caracteres">Caracteres <span id="contador"> 0</span></p>
       <button
         id="button-pergunta"
@@ -62,18 +62,23 @@
         Perguntar
       </button>
       <!-- adição de div feito por Michelle (efeito loading) -->
-      <div id="loading" class="loading" style="display: none;">
+      <div id="loading" class="loading" style="display: none">
         <div class="spinner"></div>
         <span>Carregando...</span>
       </div>
-     <!--  Fim da adição de div feito por Michelle (efeito loading) -->
+      <!--  Fim da adição de div feito por Michelle (efeito loading) -->
     </div>
     <!--AFim da área de pergunta do usuário - Yasmin Moraes-->
 
     <!--Seção de resposta da IA - Christiane Gomes -->
-    <div id="respostaSection">
-      <h6>Resposta IA</h6>
-      <p id="respostaTexto"></p>
+    <div class="resposta-container" id="resposta-container">
+      <div class="resposta-titulo-container">
+        <div class="resposta-titulo-circulo"></div>
+        <h6 class="resposta-titulo">Resposta da IA</h6>
+      </div>
+      <div id="respostaSection">
+        <p id="respostaTexto"></p>
+      </div>
     </div>
 
     <script src="js/main.js"></script>

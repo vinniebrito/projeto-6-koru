@@ -5,9 +5,9 @@ function toggleTheme() {
 
 // Função para exibir a resposta da IA - Christiane Gomes
 function mostrarResposta() {
-  const respostaSection = document.getElementById("respostaSection");
+  const respostaContainer = document.getElementById("resposta-container");
   // Torna visível a seção de resposta
-  respostaSection.style.display = "block";
+  respostaContainer.style.display = "block";
 }
 
 // Função para contar caracteres - Yasmin
@@ -127,8 +127,9 @@ async function enviarPergunta() {
             "Erro: " + (dados.error?.message || "Erro desconhecido.");
       }
     } else {
-      // aqui é onde consome a resposta da IA e exibe na tela
-      // exemplo: respostaTexto.textContent = dados.(caminho da resposta), pode verificar o objeto com um console.log(dados) para ver o caminho correto. é bom usar '?' para evitar erros de sintaxe, assim se a resposta não existir (for null, undefined, etc), não quebra o código. por exemplo: dados.candidates?. e assim vai
+      //adiciona a resposta da IA e exibe na tela - bianca
+      respostaTexto.textContent = respostaTexto.textContent =
+        dados.candidates?.[0]?.content?.parts?.[0]?.text;
     }
   } catch (e) {
     respostaTexto.textContent =
