@@ -138,14 +138,23 @@ async function enviarPergunta() {
           respostaTexto.textContent =
             "Erro: " + (dados.error?.message || "Erro desconhecido.");
       }
+      document
+        .getElementById("resposta-container")
+        .scrollIntoView({ behavior: "smooth", block: "start" });
     } else {
       //adiciona a resposta da IA e exibe na tela - bianca
       const resposta = dados.candidates?.[0]?.content?.parts?.[0]?.text;
       respostaTexto.innerHTML = formatarResposta(resposta);
+      document
+        .getElementById("resposta-container")
+        .scrollIntoView({ behavior: "smooth", block: "start" });
     }
   } catch (e) {
     respostaTexto.textContent =
       "Não foi possível se conectar à IA no momento. Por favor, verifique sua conexão ou tente novamente mais tarde.";
+    document
+      .getElementById("resposta-container")
+      .scrollIntoView({ behavior: "smooth", block: "start" });
   } finally {
     // Finaliza loading e reabilita botão - Michelle
     loading.style.display = "none";
