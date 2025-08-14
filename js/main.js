@@ -162,3 +162,12 @@ async function enviarPergunta() {
     botao.innerHTML = 'Perguntar <i class="fa-solid fa-paper-plane"></i>';
   }
 }
+
+// Função que ao clicar no botão limpar, limpa o campo de pergunta e a resposta - Christiane Gomes
+document.getElementById("botaoLimpar").addEventListener("click", () => 
+{
+  document.getElementById("perguntaInput").value = ""; 
+  document.getElementById("respostaTexto").innerHTML = ""; 
+  document.getElementById("resposta-container").style.display = "none"; 
+
+});
