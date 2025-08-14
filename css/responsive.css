@@ -1,0 +1,62 @@
+/* Responsividade - Michelle */
+/* telas até 769px */
+@media screen and (max-width:769px) {
+    body {
+        padding: 15px;
+    }
+    
+    header img {
+        max-width: 60px;
+        margin: 0;
+    }
+
+    header h1 {
+        font-size: 20px;
+        margin: 5px;
+    }
+
+    header p {
+        font-size: 13px;
+        margin: 5px;
+    }
+}
+/* telas até 480px */
+@media screen and (max-width:480px) {
+    body {
+        padding: 10px;
+    }
+
+    .container .content {
+        align-items: center;
+        gap: 5px;
+    }
+
+    header img {
+        max-width: 50px;
+        margin: 0;
+    }
+
+    .titulo-secao {
+        font-size: 14px;
+    }
+
+    #perguntaInput {
+        height: 60px;
+        font-size: 13px;
+    }
+
+    #button-pergunta {
+        font-size: 13px;
+    }
+
+    footer {
+        font-size: 13px;
+    }
+}
+
+/* telas menor de 370px */
+@media screen and (max-width:370px) {
+    .container {
+        flex-direction: column;
+    }
+}
