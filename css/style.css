@@ -278,6 +278,23 @@ header img {
   }
 }
 
+/*Botão limpar - Christiane Gomes */
+#botaoLimpar {
+  border-radius: 10px;
+  height: 35px;
+  width: 20%;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 10x;
+  background-image: linear-gradient();
+  color: var(--cor-dark-text);
+  background-color: #91a1af;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+}
+
+
 /* Footer - Vinnie */
 footer {
   margin-top: 40px;
