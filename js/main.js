@@ -164,10 +164,23 @@ async function enviarPergunta() {
 }
 
 // Função que ao clicar no botão limpar, limpa o campo de pergunta e a resposta - Christiane Gomes
-document.getElementById("botaoLimpar").addEventListener("click", () => 
-{
-  document.getElementById("perguntaInput").value = ""; 
-  document.getElementById("respostaTexto").innerHTML = ""; 
-  document.getElementById("resposta-container").style.display = "none"; 
-
+document.getElementById("botaoLimpar").addEventListener("click", () => {
+  document.getElementById("perguntaInput").value = "";
+  document.getElementById("respostaTexto").innerHTML = "";
+  document.getElementById("resposta-container").style.display = "none";
 });
+
+// Função para copiar - Vinnie
+function copiarTexto() {
+  const resposta = document.getElementById("respostaTexto");
+  const texto = resposta.innerText || resposta.textContent;
+  if (texto.trim() === "") return;
+  navigator.clipboard.writeText(texto).then(() => {
+    const botao = document.getElementById("botaoCopiar");
+    const textoOriginal = botao.innerHTML;
+    botao.innerHTML = '<i class="fa-solid fa-check"></i> Copiado!';
+    setTimeout(() => {
+      botao.innerHTML = textoOriginal;
+    }, 1000);
+  });
+}
