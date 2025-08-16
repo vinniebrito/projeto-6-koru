@@ -64,6 +64,10 @@ async function enviarPergunta() {
   // Validação de formulario - Michelle
   const erroApiKey = document.getElementById("erroApiKey");
   const erroPergunta = document.getElementById("erroPergunta");
+  const acoes = document.querySelector(".botao-acoes");
+
+  // Esconde os botões de ações - Vinnie
+  acoes.classList.add("hide");
 
   // Salva a API Key no localStorage - Vinnie
   localStorage.setItem("apiKey", apiKey);
@@ -160,5 +164,28 @@ async function enviarPergunta() {
     loading.style.display = "none";
     botao.disabled = false;
     botao.innerHTML = 'Perguntar <i class="fa-solid fa-paper-plane"></i>';
+    acoes.classList.remove("hide");
   }
+}
+
+// Função que ao clicar no botão limpar, limpa o campo de pergunta e a resposta - Christiane Gomes
+document.getElementById("botaoLimpar").addEventListener("click", () => {
+  document.getElementById("perguntaInput").value = "";
+  document.getElementById("respostaTexto").innerHTML = "";
+  document.getElementById("resposta-container").style.display = "none";
+});
+
+// Função para copiar - Vinnie
+function copiarTexto() {
+  const resposta = document.getElementById("respostaTexto");
+  const texto = resposta.innerText || resposta.textContent;
+  if (texto.trim() === "") return;
+  navigator.clipboard.writeText(texto).then(() => {
+    const botao = document.getElementById("botaoCopiar");
+    const textoOriginal = botao.innerHTML;
+    botao.innerHTML = '<i class="fa-solid fa-check"></i> Copiado!';
+    setTimeout(() => {
+      botao.innerHTML = textoOriginal;
+    }, 1000);
+  });
 }

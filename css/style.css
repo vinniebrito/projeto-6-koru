@@ -12,6 +12,7 @@
   --cor-dark-bg: #18212e;
   --cor-dark-bg-cards: #1e293b;
   --cor-dark-bg-secondary: #33415f;
+  --cor-dark-botoes: #2b364d;
   --cor-dark-toggle: #0c1118;
   --cor-dark-text: #ffffff;
 }
@@ -277,6 +278,41 @@ header img {
     transform: rotate(360deg);
   }
 }
+/* Botão limpar e copiar - Christiane Gomes e Vinnie */
+.botao-acoes {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+#botaoLimpar,
+#botaoCopiar {
+  flex: 1 1 0;
+  border-radius: 10px;
+  height: 35px;
+  border: 1px solid rgb(201, 201, 201);
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: box-shadow 0.2s;
+  background-color: var(--cor-bg-cards);
+  color: var(--cor-text);
+}
+
+#botaoLimpar:hover,
+#botaoCopiar:hover {
+  background-color: var(--cor-bg);
+}
+
+.hide {
+  display: none !important;
+}
 
 /* Footer - Vinnie */
 footer {
@@ -342,7 +378,6 @@ footer a:hover {
 .dark #apiKey {
   background-color: var(--cor-dark-bg-secondary);
   color: var(--cor-dark-text);
-  border: var(--cor-dark-bg);
 }
 
 .dark #respostaSection {
@@ -354,4 +389,16 @@ footer a:hover {
   border: 1px solid #fff;
   box-shadow: 0 0 0 1px #fff;
   transition: border 0.2s, box-shadow 0.2s;
+}
+
+.dark #botaoLimpar,
+.dark #botaoCopiar {
+  border: 1px solid #82838d;
+  background-color: var(--cor-dark-botoes);
+  color: var(--cor-dark-text);
+}
+
+.dark #botaoLimpar:hover,
+.dark #botaoCopiar:hover {
+  background-color: var(--cor-dark-bg-cards);
 }
