@@ -189,3 +189,32 @@ function copiarTexto() {
     }, 1000);
   });
 }
+
+//secao de atalho teclas Ctrl+Enter para enviar perguntas - Bianca
+let teclasPressionadas = [];
+
+document.addEventListener("keydown", verificaAtalho);
+document.addEventListener("keyup", removeTecla);
+
+function verificaAtalho(event) {
+  const chaveTecla = event.key;
+
+  if (
+    teclasPressionadas.length == 1 &&
+    teclasPressionadas[0] == "Control" &&
+    chaveTecla == "Enter"
+  ) {
+    teclasPressionadas = [];
+    enviarPergunta();
+  } else {
+    teclasPressionadas.push(chaveTecla);
+  }
+}
+
+function removeTecla(event) {
+  const chaveTecla = event.key;
+
+  teclasPressionadas = teclasPressionadas.filter(
+    (tecla) => tecla != chaveTecla
+  );
+}
