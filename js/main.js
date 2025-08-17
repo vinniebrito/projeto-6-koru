@@ -173,6 +173,7 @@ document.getElementById("botaoLimpar").addEventListener("click", () => {
   document.getElementById("perguntaInput").value = "";
   document.getElementById("respostaTexto").innerHTML = "";
   document.getElementById("resposta-container").style.display = "none";
+  document.querySelector("p span").innerText = 0;
 });
 
 // Função para copiar - Vinnie
@@ -189,6 +190,13 @@ function copiarTexto() {
     }, 1000);
   });
 }
+
+// Exibir a pergunta - Willian
+document.getElementById("button-pergunta").addEventListener("click", () => {
+  let pergunta = document.getElementById("perguntaInput").value;
+  console.log(pergunta);
+  document.getElementById("perguntaTexto").innerText = pergunta;
+});
 
 //secao de atalho teclas Ctrl+Enter para enviar perguntas - Bianca
 let teclasPressionadas = [];
