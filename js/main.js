@@ -191,11 +191,15 @@ function copiarTexto() {
   });
 }
 
-// Exibir a pergunta - Willian
-document.getElementById("button-pergunta").addEventListener("click", () => {
+// Função para exibir a pergunta - Willian
+function exibirPergunta() {
   let pergunta = document.getElementById("perguntaInput").value;
-  console.log(pergunta);
   document.getElementById("perguntaTexto").innerText = pergunta;
+}
+
+// Clique no botão
+document.getElementById("button-pergunta").addEventListener("click", () => {
+  exibirPergunta();
 });
 
 //secao de atalho teclas Ctrl+Enter para enviar perguntas - Bianca
@@ -213,6 +217,7 @@ function verificaAtalho(event) {
     chaveTecla == "Enter"
   ) {
     teclasPressionadas = [];
+    exibirPergunta();
     enviarPergunta();
   } else {
     teclasPressionadas.push(chaveTecla);
