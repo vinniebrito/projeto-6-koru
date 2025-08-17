@@ -173,6 +173,7 @@ document.getElementById("botaoLimpar").addEventListener("click", () => {
   document.getElementById("perguntaInput").value = "";
   document.getElementById("respostaTexto").innerHTML = "";
   document.getElementById("resposta-container").style.display = "none";
+  document.querySelector("p span").innerText = 0;
 });
 
 // Função para copiar - Vinnie
@@ -192,10 +193,7 @@ function copiarTexto() {
 
 // Exibir a pergunta - Willian
 document.getElementById("button-pergunta").addEventListener("click", () => {
-  let pergunta = document.getElementById("perguntaInput").value
-  console.log(pergunta)
-
-  setTimeout(() => {
-    document.getElementById("perguntaTexto").innerText = pergunta
-  }, 1200);
-})
+  let pergunta = document.getElementById("perguntaInput").value;
+  console.log(pergunta);
+  document.getElementById("perguntaTexto").innerText = pergunta;
+});
