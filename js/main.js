@@ -189,3 +189,13 @@ function copiarTexto() {
     }, 1000);
   });
 }
+
+// Exibir a pergunta - Willian
+document.getElementById("button-pergunta").addEventListener("click", () => {
+  let pergunta = document.getElementById("perguntaInput").value
+  console.log(pergunta)
+
+  setTimeout(() => {
+    document.getElementById("perguntaTexto").innerText = pergunta
+  }, 1200);
+})

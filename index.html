@@ -1,122 +1,114 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/responsive.css" media="screen" />
-    <link rel="icon" href="./img/logo.png" type="image/png" />
-    <title>Assistente IA</title>
-  </head>
 
-  <body>
-    <!-- Header - William -->
-    <header class="header">
-      <div class="container">
-        <div class="content">
-          <img src="./img/logo.png" alt="logo" />
-          <div>
-            <h1>Assistente de IA</h1>
-            <p>Conectando dados para gerar respostas inteligentes</p>
-          </div>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" media="screen" />
+  <link rel="icon" href="./img/logo.png" type="image/png" />
+  <title>Assistente IA</title>
+</head>
 
-        <div class="theme-toggle" onclick="toggleTheme()">
-          <div class="icon"><i class="fa-solid fa-sun"></i></div>
-          <div class="content-ball">
-            <div class="toggle-ball"></div>
-          </div>
-          <div class="icon"><i class="fa-solid fa-moon"></i></div>
+<body>
+  <!-- Header - William -->
+  <header class="header">
+    <div class="container">
+      <div class="content">
+        <img src="./img/logo.png" alt="logo" />
+        <div>
+          <h1>Assistente de IA</h1>
+          <p>Conectando dados para gerar respostas inteligentes</p>
         </div>
       </div>
-    </header>
 
-    <!-- Input tipo password - Thalyta Ferreira -->
-    <div class="api-key-container">
-      <div class="label-container">
-        <label class="titulo-secao" for="apiKey">API Key (Gemini) </label>
+      <div class="theme-toggle" onclick="toggleTheme()">
+        <div class="icon"><i class="fa-solid fa-sun"></i></div>
+        <div class="content-ball">
+          <div class="toggle-ball"></div>
+        </div>
+        <div class="icon"><i class="fa-solid fa-moon"></i></div>
       </div>
-      <div class="input-wrapper" id="inputWrapper">
-        <i class="fa-solid fa-lock icon-key"></i>
-        <input
-          type="password"
-          id="apiKey"
-          placeholder="Insira sua API Key..."
-          required
-        />
-      </div>
-      <!-- Adição tag small para validação - Michelle -->
-      <small class="erro-msg" id="erroApiKey"></small>
     </div>
+  </header>
 
-    <!-- Pergunta do usuário - Yasmin Moraes-->
-    <div class="pergunta-container">
-      <h6 class="titulo-secao">Sua pergunta</h6>
-      <textarea
-        id="perguntaInput"
-        placeholder="Digite sua pergunta aqui..."
-      ></textarea>
-      <!-- Adição tag small para validação - Michelle -->
-      <small class="erro-msg" id="erroPergunta"></small>
-      <p id="caracteres">Caracteres: <span id="contador"> 0</span></p>
-      <button
-        id="button-pergunta"
-        class="botaopergunta"
-        onclick="enviarPergunta()"
-      >
-        Perguntar <i class="fa-solid fa-paper-plane"></i>
+  <!-- Input tipo password - Thalyta Ferreira -->
+  <div class="api-key-container">
+    <div class="label-container">
+      <label class="titulo-secao" for="apiKey">API Key (Gemini) </label>
+    </div>
+    <div class="input-wrapper" id="inputWrapper">
+      <i class="fa-solid fa-lock icon-key"></i>
+      <input type="password" id="apiKey" placeholder="Insira sua API Key..." required />
+    </div>
+    <!-- Adição tag small para validação - Michelle -->
+    <small class="erro-msg" id="erroApiKey"></small>
+  </div>
+
+  <!-- Pergunta do usuário - Yasmin Moraes-->
+  <div class="pergunta-container">
+    <h6 class="titulo-secao">Sua pergunta</h6>
+    <textarea id="perguntaInput" placeholder="Digite sua pergunta aqui..."></textarea>
+    <!-- Adição tag small para validação - Michelle -->
+    <small class="erro-msg" id="erroPergunta"></small>
+    <p id="caracteres">Caracteres: <span id="contador"> 0</span></p>
+    <button id="button-pergunta" class="botaopergunta" onclick="enviarPergunta()">
+      Perguntar <i class="fa-solid fa-paper-plane"></i>
+    </button>
+  </div>
+
+  <!-- Resposta da IA - Christiane e Bianca -->
+  <div class="resposta-container" id="resposta-container">
+    <!-- Inicio Mostrar Pergunta junto com resposta - Willian -->
+    <div class="pergunta-titulo-container">
+      <div class="pergunta-titulo-circulo"></div>
+      <h6 class="pergunta-titulo">Sua pergunta</h6>
+    </div>
+    <div id="perguntaSection">
+      <!-- Adição de div feito por Michelle (efeito loading) -->
+      <p class="pergunta-texto" id="perguntaTexto"></p>
+    </div>
+    <!-- Fim Mostrar Pergunta junto com resposta - Willian -->
+
+    <div class="resposta-titulo-container">
+      <div class="resposta-titulo-circulo"></div>
+      <h6 class="titulo-secao">Resposta da IA</h6>
+    </div>
+    <div id="respostaSection">
+      <!-- Adição de div feito por Michelle (efeito loading) -->
+      <div id="loading" class="loading" style="display: none">
+        <div class="spinner"></div>
+        <span>Carregando...</span>
+      </div>
+      <p class="resposta-texto" id="respostaTexto"></p>
+    </div>
+    <div class="botao-acoes">
+      <!-- Botão Copiar - Vinnie -->
+      <button id="botaoCopiar" onclick="copiarTexto()">
+        <i class="fa-solid fa-copy"></i>Copiar
+      </button>
+      <!-- Botão Limpar - Christiane Gomes-->
+      <button id="botaoLimpar" onclick="limparCampo()">
+        <i class="fa-solid fa-trash"></i>Limpar
       </button>
     </div>
+  </div>
 
-    <!-- Resposta da IA - Christiane e Bianca -->
-    <div class="resposta-container" id="resposta-container">
-      <div class="resposta-titulo-container">
-        <div class="resposta-titulo-circulo"></div>
-        <h6 class="titulo-secao">Resposta da IA</h6>
-      </div>
-      <div id="respostaSection">
-        <!-- Adição de div feito por Michelle (efeito loading) -->
-        <div id="loading" class="loading" style="display: none">
-          <div class="spinner"></div>
-          <span>Carregando...</span>
-        </div>
-        <p class="resposta-texto" id="respostaTexto"></p>
-      </div>
-      <div class="botao-acoes">
-        <!-- Botão Copiar - Vinnie -->
-        <button id="botaoCopiar" onclick="copiarTexto()">
-          <i class="fa-solid fa-copy"></i>Copiar
-        </button>
-        <!-- Botão Limpar - Christiane Gomes-->
-        <button id="botaoLimpar" onclick="limparCampo()">
-          <i class="fa-solid fa-trash"></i>Limpar
-        </button>
-      </div>
-    </div>
+  <!-- Footer - Vinnie -->
+  <footer>
+    <p>
+      Desenvolvido pelo grupo <strong>BugBusters</strong> como parte do
+      Programa Desenvolve do grupo Boticário + Koru.
+    </p>
+    <p>
+      Powered by
+      <strong><a href="https://ai.google.dev/gemini-api" target="_blank" rel="noopener noreferrer">API
+          Gemini</a></strong>.
+    </p>
+  </footer>
 
-    <!-- Footer - Vinnie -->
-    <footer>
-      <p>
-        Desenvolvido pelo grupo <strong>BugBusters</strong> como parte do
-        Programa Desenvolve do grupo Boticário + Koru.
-      </p>
-      <p>
-        Powered by
-        <strong
-          ><a
-            href="https://ai.google.dev/gemini-api"
-            target="_blank"
-            rel="noopener noreferrer"
-            >API Gemini</a
-          ></strong
-        >.
-      </p>
-    </footer>
+  <script src="js/main.js"></script>
+</body>
 
-    <script src="js/main.js"></script>
-  </body>
 </html>
