@@ -169,12 +169,14 @@ async function enviarPergunta() {
 }
 
 // Função que ao clicar no botão limpar, limpa o campo de pergunta e a resposta - Christiane Gomes
-document.getElementById("botaoLimpar").addEventListener("click", () => {
+function limparResposta() {
   document.getElementById("perguntaInput").value = "";
   document.getElementById("respostaTexto").innerHTML = "";
   document.getElementById("resposta-container").style.display = "none";
   document.querySelector("p span").innerText = 0;
-});
+  const modal = document.getElementById("modal");
+  if (modal) modal.classList.remove("show");
+}
 
 // Função para copiar - Vinnie
 function copiarTexto() {
@@ -230,4 +232,14 @@ function removeTecla(event) {
   teclasPressionadas = teclasPressionadas.filter(
     (tecla) => tecla != chaveTecla
   );
+}
+
+function abrirModal() {
+  const modal = document.getElementById("modal");
+  if (modal) modal.classList.add("show");
+}
+
+function fecharModal() {
+  const modal = document.getElementById("modal");
+  if (modal) modal.classList.remove("show");
 }
