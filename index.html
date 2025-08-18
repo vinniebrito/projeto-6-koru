@@ -7,8 +7,8 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/responsive.css" media="screen" />
+    <link rel="stylesheet" href=".css/style.css" />
+    <link rel="stylesheet" href=".css/responsive.css" media="screen" />
     <link rel="icon" href="./img/logo.png" type="image/png" />
     <title>Assistente IA</title>
   </head>
@@ -128,16 +128,19 @@
       </p>
     </footer>
 
-  <div id="modal">
-    <div class="content">
-      <h2>Limpar conversa?</h2>
-      <p>Esta ação irá remover a pergunta e resposta atual. Esta ação não pode ser desfeita</p>
-      <div class="modal-buttons-container">
+    <div id="modal">
+      <div class="content">
+        <h2>Limpar conversa?</h2>
+        <p>
+          Esta ação irá remover a pergunta e resposta atual. Esta ação não pode
+          ser desfeita
+        </p>
+        <div class="modal-buttons-container">
           <button onclick="fecharModal()">Cancelar</button>
           <button onclick="limparResposta()" class="botaoLimpar">Limpar</button>
+        </div>
       </div>
     </div>
-  </div>
 
     <script src="js/main.js"></script>
   </body>
