@@ -404,33 +404,46 @@ footer a:hover {
 }
 /*modal - thalyta ferreira*/
 
-/* #modal {
-  display: none !important; 
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
-/* Caixa do modal */
-/* #modal .content {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  max-width: 400px;
-  text-align: center;
-} */
-
 #modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.5);
-    justify-content: center;
-    align-items: center;
-  }
-  #modal.show {
-    display: flex; /* só aparece quando a classe .show é adicionada */
-  }
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+    #modal.show {
+      display: flex;
+    }
+    #modal .content {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    #modal p {
+      color: var(--cor-text-secondary);
+    }
+.modal-buttons-container {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 20px;
+      gap: 10px;
+    }
+    #modal button {
+      padding: 10px 20px;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: #fff;
+      color: #222;
+      font-weight: bold;
+      font-size: 15px;
+    }
+    #modal button:hover {
+      border-color: #222;
+    }
+    #modal .botaoLimpar {
+      background-color: #fc0000;
+      color: white;
+    }

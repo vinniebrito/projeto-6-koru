@@ -169,11 +169,13 @@ async function enviarPergunta() {
 }
 
 // Função que ao clicar no botão limpar, limpa o campo de pergunta e a resposta - Christiane Gomes
-document.getElementById("achar").addEventListener("click", () => {
+function limparResposta() {
   document.getElementById("perguntaInput").value = "";
   document.getElementById("respostaTexto").innerHTML = "";
   document.getElementById("resposta-container").style.display = "none";
-});
+  const modal = document.getElementById("modal");
+  if (modal) modal.classList.remove("show");
+};
 
 // Função para copiar - Vinnie
 function copiarTexto() {
@@ -190,16 +192,13 @@ function copiarTexto() {
   });
 }
 
-// //function abrirModal() {
-//       document.getElementById("modal").style.display = "flex";
-//  //   }
-//  //   function fecharModal() {
-// //      document.getElementById("modal").style.display = "none";
-//  // }
-const modal = document.getElementById("modal");
-  function abrirModal() {
-    modal.classList.add("show");
-  }
-  function fecharModal() {
-    modal.classList.remove("show");
-  }
+
+function abrirModal() {
+  const modal = document.getElementById("modal");
+  if (modal) modal.classList.add("show");
+}
+
+function fecharModal() {
+  const modal = document.getElementById("modal");
+  if (modal) modal.classList.remove("show");
+}

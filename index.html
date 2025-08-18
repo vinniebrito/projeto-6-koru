@@ -118,14 +118,16 @@
     </footer>
 
   <div id="modal">
-    <div class="content" >
-      <h2>Olá 👋</h2>
-      <p>Este é um modal simples.</p>
-      <button onclick="fecharModal()">Fechar</button>
+    <div class="content">
+      <h2>Limpar conversa?</h2>
+      <p>Esta ação irá remover a pergunta e resposta atual. Esta ação não pode ser desfeita</p>
+      <div class="modal-buttons-container">
+          <button onclick="fecharModal()">Cancelar</button>
+          <button onclick="limparResposta()" class="botaoLimpar">Limpar</button>
+      </div>
     </div>
   </div>
 
     <script src="js/main.js"></script>
-    
   </body>
 </html>
