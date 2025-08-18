@@ -103,7 +103,8 @@ header img {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
 
-.titulo-secao {
+.titulo-secao,
+.pergunta-titulo {
   font-size: 15px;
   margin: 16px 0;
   font-weight: bold;
@@ -215,25 +216,40 @@ header img {
 #respostaSection {
   padding: 20px;
   background-color: #f0f8ff;
+  border-left: 5px solid rgb(41, 184, 41);
+  border-radius: 10px;
+}
+
+#perguntaSection {
+  padding: 20px;
+  background-color: #f0f8ff;
   border-left: 5px solid #4f3aad;
   border-radius: 10px;
+}
+
+.pergunta-texto {
+  margin: 0;
 }
 
 .resposta-container {
   display: none;
 }
 
-.resposta-titulo-container {
+.resposta-titulo-container,
+.pergunta-titulo-container {
   display: flex;
   align-items: center;
   gap: 4px;
 }
 
-.resposta-titulo-circulo {
-  height: 7px;
-  width: 7px;
-  background-color: rgb(41, 184, 41);
-  border-radius: 50%;
+.fa-solid.fa-robot {
+  color: rgb(41, 184, 41);
+  font-size: 15px;
+}
+
+.fa-solid.fa-user {
+  color: #4f3aad;
+  font-size: 15px;
 }
 
 .resposta-texto {
@@ -278,6 +294,7 @@ header img {
     transform: rotate(360deg);
   }
 }
+
 /* Botão limpar e copiar - Christiane Gomes e Vinnie */
 .botao-acoes {
   display: flex;
@@ -332,6 +349,7 @@ footer a {
   text-decoration: underline;
   transition: color 0.2s;
 }
+
 footer a:hover {
   color: #7f41fc;
 }
@@ -362,7 +380,8 @@ footer a:hover {
 .dark .pergunta-container,
 .dark .resposta-container,
 .dark .resposta-texto,
-.dark .loading {
+.dark .loading,
+.dark .pergunta-titulo {
   color: var(--cor-dark-text);
 }
 
@@ -381,6 +400,11 @@ footer a:hover {
 }
 
 .dark #respostaSection {
+  background-color: var(--cor-dark-bg-secondary);
+  color: var(--cor-dark-text);
+}
+
+.dark #perguntaSection {
   background-color: var(--cor-dark-bg-secondary);
   color: var(--cor-dark-text);
 }

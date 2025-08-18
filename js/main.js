@@ -173,9 +173,10 @@ function limparResposta() {
   document.getElementById("perguntaInput").value = "";
   document.getElementById("respostaTexto").innerHTML = "";
   document.getElementById("resposta-container").style.display = "none";
+  document.querySelector("p span").innerText = 0;
   const modal = document.getElementById("modal");
   if (modal) modal.classList.remove("show");
-};
+}
 
 // Função para copiar - Vinnie
 function copiarTexto() {
@@ -192,6 +193,87 @@ function copiarTexto() {
   });
 }
 
+// Função para exibir a pergunta - Willian
+function exibirPergunta() {
+  let pergunta = document.getElementById("perguntaInput").value;
+  document.getElementById("perguntaTexto").innerText = pergunta;
+}
+
+// Clique no botão
+document.getElementById("button-pergunta").addEventListener("click", () => {
+  exibirPergunta();
+});
+
+//secao de atalho teclas Ctrl+Enter para enviar perguntas - Bianca
+let teclasPressionadas = [];
+
+document.addEventListener("keydown", verificaAtalho);
+document.addEventListener("keyup", removeTecla);
+
+function verificaAtalho(event) {
+  const chaveTecla = event.key;
+
+  if (
+    teclasPressionadas.length == 1 &&
+    teclasPressionadas[0] == "Control" &&
+    chaveTecla == "Enter"
+  ) {
+    teclasPressionadas = [];
+    exibirPergunta();
+    enviarPergunta();
+  } else {
+    teclasPressionadas.push(chaveTecla);
+  }
+}
+
+function removeTecla(event) {
+  const chaveTecla = event.key;
+
+  teclasPressionadas = teclasPressionadas.filter(
+    (tecla) => tecla != chaveTecla
+  );
+}
+
+// Função para exibir a pergunta - Willian
+function exibirPergunta() {
+  let pergunta = document.getElementById("perguntaInput").value;
+  document.getElementById("perguntaTexto").innerText = pergunta;
+}
+
+// Clique no botão
+document.getElementById("button-pergunta").addEventListener("click", () => {
+  exibirPergunta();
+});
+
+//secao de atalho teclas Ctrl+Enter para enviar perguntas - Bianca
+let teclasPressionadas = [];
+
+document.addEventListener("keydown", verificaAtalho);
+document.addEventListener("keyup", removeTecla);
+
+function verificaAtalho(event) {
+  const chaveTecla = event.key;
+
+  if (
+    teclasPressionadas.length == 1 &&
+    teclasPressionadas[0] == "Control" &&
+    chaveTecla == "Enter"
+  ) {
+    teclasPressionadas = [];
+    exibirPergunta();
+    enviarPergunta();
+  } else {
+    teclasPressionadas.push(chaveTecla);
+  }
+}
+
+function removeTecla(event) {
+  const chaveTecla = event.key;
+
+  teclasPressionadas = teclasPressionadas.filter(
+    (tecla) => tecla != chaveTecla
+  );
+}
 
 function abrirModal() {
   const modal = document.getElementById("modal");
