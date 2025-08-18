@@ -74,8 +74,19 @@
 
     <!-- Resposta da IA - Christiane e Bianca -->
     <div class="resposta-container" id="resposta-container">
+      <!-- Inicio Mostrar Pergunta junto com resposta - Willian -->
+      <div class="pergunta-titulo-container">
+        <i class="fa-solid fa-user"></i>
+        <h6 class="pergunta-titulo">Sua pergunta</h6>
+      </div>
+      <div id="perguntaSection">
+        <!-- Adição de div feito por Michelle (efeito loading) -->
+        <p class="pergunta-texto" id="perguntaTexto"></p>
+      </div>
+      <!-- Fim Mostrar Pergunta junto com resposta - Willian -->
+
       <div class="resposta-titulo-container">
-        <div class="resposta-titulo-circulo"></div>
+        <i class="fa-solid fa-robot" id="iconeResposta"></i>
         <h6 class="titulo-secao">Resposta da IA</h6>
       </div>
       <div id="respostaSection">
@@ -92,7 +103,7 @@
           <i class="fa-solid fa-copy"></i>Copiar
         </button>
         <!-- Botão Limpar - Christiane Gomes-->
-        <button id="botaoLimpar" onclick="limparCampo()">
+        <button id="botaoLimpar" onclick="abrirModal()">
           <i class="fa-solid fa-trash"></i>Limpar
         </button>
       </div>
@@ -116,6 +127,17 @@
         >.
       </p>
     </footer>
+
+  <div id="modal">
+    <div class="content">
+      <h2>Limpar conversa?</h2>
+      <p>Esta ação irá remover a pergunta e resposta atual. Esta ação não pode ser desfeita</p>
+      <div class="modal-buttons-container">
+          <button onclick="fecharModal()">Cancelar</button>
+          <button onclick="limparResposta()" class="botaoLimpar">Limpar</button>
+      </div>
+    </div>
+  </div>
 
     <script src="js/main.js"></script>
   </body>

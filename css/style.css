@@ -103,7 +103,8 @@ header img {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
 
-.titulo-secao {
+.titulo-secao,
+.pergunta-titulo {
   font-size: 15px;
   margin: 16px 0;
   font-weight: bold;
@@ -215,25 +216,40 @@ header img {
 #respostaSection {
   padding: 20px;
   background-color: #f0f8ff;
+  border-left: 5px solid rgb(41, 184, 41);
+  border-radius: 10px;
+}
+
+#perguntaSection {
+  padding: 20px;
+  background-color: #f0f8ff;
   border-left: 5px solid #4f3aad;
   border-radius: 10px;
+}
+
+.pergunta-texto {
+  margin: 0;
 }
 
 .resposta-container {
   display: none;
 }
 
-.resposta-titulo-container {
+.resposta-titulo-container,
+.pergunta-titulo-container {
   display: flex;
   align-items: center;
   gap: 4px;
 }
 
-.resposta-titulo-circulo {
-  height: 7px;
-  width: 7px;
-  background-color: rgb(41, 184, 41);
-  border-radius: 50%;
+.fa-solid.fa-robot {
+  color: rgb(41, 184, 41);
+  font-size: 15px;
+}
+
+.fa-solid.fa-user {
+  color: #4f3aad;
+  font-size: 15px;
 }
 
 .resposta-texto {
@@ -278,6 +294,7 @@ header img {
     transform: rotate(360deg);
   }
 }
+
 /* Botão limpar e copiar - Christiane Gomes e Vinnie */
 .botao-acoes {
   display: flex;
@@ -332,6 +349,7 @@ footer a {
   text-decoration: underline;
   transition: color 0.2s;
 }
+
 footer a:hover {
   color: #7f41fc;
 }
@@ -362,7 +380,8 @@ footer a:hover {
 .dark .pergunta-container,
 .dark .resposta-container,
 .dark .resposta-texto,
-.dark .loading {
+.dark .loading,
+.dark .pergunta-titulo {
   color: var(--cor-dark-text);
 }
 
@@ -385,6 +404,11 @@ footer a:hover {
   color: var(--cor-dark-text);
 }
 
+.dark #perguntaSection {
+  background-color: var(--cor-dark-bg-secondary);
+  color: var(--cor-dark-text);
+}
+
 .dark .input-wrapper:focus-within {
   border: 1px solid #fff;
   box-shadow: 0 0 0 1px #fff;
@@ -401,4 +425,78 @@ footer a:hover {
 .dark #botaoLimpar:hover,
 .dark #botaoCopiar:hover {
   background-color: var(--cor-dark-bg-cards);
+}
+/*modal - thalyta ferreira*/
+
+#modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+#modal.show {
+  display: flex;
+}
+
+#modal .content {
+  background: var(--cor-bg-cards);
+  padding: 20px;
+  border-radius: 8px;
+  margin: 0px 10px 0px 10px;
+}
+
+#modal p,
+#modal h2 {
+  color: var(--cor-text);
+  font-size: 15px;
+}
+
+.dark #modal p,
+.dark #modal h2 {
+  color: var(--cor-dark-text-secondary);
+}
+
+.dark #modal .content {
+  background: var(--cor-dark-bg-cards);
+}
+
+.modal-buttons-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+#modal button {
+  padding: 10px 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: var(--cor-bg-cards);
+  color: #222;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.dark #modal button {
+  background-color: var(--cor-dark-bg-cards);
+  color: var(--cor-dark-text);
+}
+
+#modal button:hover {
+  border-color: #222;
+}
+
+#modal .botaoLimpar {
+  background-color: #fc0000;
+  color: white;
+}
+
+.dark #modal .botaoLimpar {
+  background-color: #fc0000;
+  color: white;
 }

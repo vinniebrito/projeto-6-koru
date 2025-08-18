@@ -128,7 +128,7 @@ async function enviarPergunta() {
       switch (dados.error?.code) {
         case 400:
           respostaTexto.textContent =
-            "Dados enviados inválidos. Verifique sua API Key e/ou sua pergunta e tente novamente.";
+            "Dados enviados inválidos. Verifique sua API Key e tente novamente.";
           break;
         case 403:
           respostaTexto.textContent =
@@ -169,11 +169,14 @@ async function enviarPergunta() {
 }
 
 // Função que ao clicar no botão limpar, limpa o campo de pergunta e a resposta - Christiane Gomes
-document.getElementById("botaoLimpar").addEventListener("click", () => {
+function limparResposta() {
   document.getElementById("perguntaInput").value = "";
   document.getElementById("respostaTexto").innerHTML = "";
   document.getElementById("resposta-container").style.display = "none";
-});
+  document.querySelector("p span").innerText = 0;
+  const modal = document.getElementById("modal");
+  if (modal) modal.classList.remove("show");
+}
 
 // Função para copiar - Vinnie
 function copiarTexto() {
@@ -188,4 +191,38 @@ function copiarTexto() {
       botao.innerHTML = textoOriginal;
     }, 1000);
   });
+}
+
+// Função para exibir a pergunta - Willian
+function exibirPergunta() {
+  let pergunta = document.getElementById("perguntaInput").value;
+  document.getElementById("perguntaTexto").innerText = pergunta;
+}
+
+// Clique no botão
+document.getElementById("button-pergunta").addEventListener("click", () => {
+  exibirPergunta();
+});
+
+//secao de atalho teclas Ctrl+Enter para enviar perguntas - Bianca
+let teclasPressionadas = [];
+
+document.addEventListener("keydown", function (event) {
+  if (event.ctrlKey && event.key === "Enter") {
+    exibirPergunta();
+    enviarPergunta();
+    event.preventDefault();
+  }
+});
+
+// Função para abrir o modal de confirmação - Thalyta
+
+function abrirModal() {
+  const modal = document.getElementById("modal");
+  if (modal) modal.classList.add("show");
+}
+
+function fecharModal() {
+  const modal = document.getElementById("modal");
+  if (modal) modal.classList.remove("show");
 }
