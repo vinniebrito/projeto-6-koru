@@ -169,7 +169,7 @@ async function enviarPergunta() {
 }
 
 // Função que ao clicar no botão limpar, limpa o campo de pergunta e a resposta - Christiane Gomes
-document.getElementById("botaoLimpar").addEventListener("click", () => {
+document.getElementById("achar").addEventListener("click", () => {
   document.getElementById("perguntaInput").value = "";
   document.getElementById("respostaTexto").innerHTML = "";
   document.getElementById("resposta-container").style.display = "none";
@@ -189,3 +189,17 @@ function copiarTexto() {
     }, 1000);
   });
 }
+
+// //function abrirModal() {
+//       document.getElementById("modal").style.display = "flex";
+//  //   }
+//  //   function fecharModal() {
+// //      document.getElementById("modal").style.display = "none";
+//  // }
+const modal = document.getElementById("modal");
+  function abrirModal() {
+    modal.classList.add("show");
+  }
+  function fecharModal() {
+    modal.classList.remove("show");
+  }

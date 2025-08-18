@@ -402,3 +402,35 @@ footer a:hover {
 .dark #botaoCopiar:hover {
   background-color: var(--cor-dark-bg-cards);
 }
+/*modal - thalyta ferreira*/
+
+/* #modal {
+  display: none !important; 
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+/* Caixa do modal */
+/* #modal .content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 400px;
+  text-align: center;
+} */
+
+#modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+  }
+  #modal.show {
+    display: flex; /* só aparece quando a classe .show é adicionada */
+  }
