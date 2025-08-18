@@ -207,32 +207,15 @@ document.getElementById("button-pergunta").addEventListener("click", () => {
 //secao de atalho teclas Ctrl+Enter para enviar perguntas - Bianca
 let teclasPressionadas = [];
 
-document.addEventListener("keydown", verificaAtalho);
-document.addEventListener("keyup", removeTecla);
-
-function verificaAtalho(event) {
-  const chaveTecla = event.key;
-
-  if (
-    teclasPressionadas.length == 1 &&
-    teclasPressionadas[0] == "Control" &&
-    chaveTecla == "Enter"
-  ) {
-    teclasPressionadas = [];
+document.addEventListener("keydown", function (event) {
+  if (event.ctrlKey && event.key === "Enter") {
     exibirPergunta();
     enviarPergunta();
-  } else {
-    teclasPressionadas.push(chaveTecla);
+    event.preventDefault();
   }
-}
+});
 
-function removeTecla(event) {
-  const chaveTecla = event.key;
-
-  teclasPressionadas = teclasPressionadas.filter(
-    (tecla) => tecla != chaveTecla
-  );
-}
+// Função para abrir o modal de confirmação - Thalyta
 
 function abrirModal() {
   const modal = document.getElementById("modal");
