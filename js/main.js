@@ -128,7 +128,7 @@ async function enviarPergunta() {
       switch (dados.error?.code) {
         case 400:
           respostaTexto.textContent =
-            "Dados enviados inválidos. Verifique sua API Key e/ou sua pergunta e tente novamente.";
+            "Dados enviados inválidos. Verifique sua API Key e tente novamente.";
           break;
         case 403:
           respostaTexto.textContent =
